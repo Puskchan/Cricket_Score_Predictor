@@ -3,4 +3,5 @@ numpy
 seaborn
 matplotlib
 scikit-learn
--e .
+dill
+#-e .
