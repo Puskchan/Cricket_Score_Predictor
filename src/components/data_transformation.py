@@ -5,10 +5,7 @@ import numpy as np
 import pandas as pd
 
 from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from sklearn.preprocessing import LabelEncoder
 
 from src.exception import CustomException
 from src.logger import logging
@@ -83,19 +80,10 @@ class DataTransformation:
 
             inp_train_arr = pd.DataFrame(preprocessing_obj.fit_transform(train_df))
             inp_test_arr = pd.DataFrame(preprocessing_obj.fit_transform(test_df))
-            # print(inp_train_arr)
 
 
             target_column_name = 3
-            # Columns = ['Over Number', 'Runs Scored till that over',
-            #            'Wickets Taken till that over', 'Total Runs', 'Runs in Last 5 Overs',
-            #            'Wickets in Last 5 Overs', 'Batting team AFG', 'Batting team AUS',
-            #            'Batting team BAN', 'Batting team ENG', 'Batting team IND', 'Batting team IRE',
-            #            'Batting team NED', 'Batting team NZ', 'Batting team PAK', 'Batting team SA',
-            #            'Batting team SL', 'Batting team WI', 'Bowling team AFG',
-            #            'Bowling team AUS', 'Bowling team BAN', 'Bowling team ENG', 'Bowling team IND',
-            #            'Bowling team IRE', 'Bowling team NED', 'Bowling team NZ', 'Bowling team PAK',
-            #            'Bowling team SA', 'Bowling team SL', 'Bowling team WI']
+
 
             inp_feature_train_df = inp_train_arr.drop(columns=[target_column_name],axis=1)
             target_feature_train_df = inp_train_arr[target_column_name]
