@@ -22,23 +22,21 @@ def predict_datapoint():
         return render_template('home.html')
     else:
         data = CustomData(
-            Over_Number = request.form.get('Over_Number'),
-            Runs_Scored_Till_That_Over = request.form.get('Runs_Scored_Till_That_Over'),
-            Wickets_Taken_Till_That_Over = request.form.get('Wickets_Taken_Till_That_Over'),
-            Runs_in_Last_5_Overs = request.form.get('Runs_in_Last_5_Overs'),
-            Wickets_in_Last_5_Overs = request.form.get('Wickets_in_Last_5_Overs'),
+            Over_Number = request.form.get('overNumber'),
+            Runs_Scored_Till_That_Over = request.form.get('runsTillOver'),
+            Wickets_Taken_Till_That_Over = request.form.get('wicketsTillOver'),
+            Runs_in_Last_5_Overs = request.form.get('runsLast5overs'),
+            Wickets_in_Last_5_Overs = request.form.get('wicketsLast5overs'),
+            Batting_team = request.form.get('battingteam'),
+            Bowling_team = request.form.get('bowlingteam'),
         )
 
         pred_df = data.get_data_as_df()
-
-        # add the imputer and fix that batting and bowling thing
-        # just fill in the teams playing to true and 
-        # then fill rest with false
         
         predict_pipeline = PredictionPipeline()
         results = predict_pipeline.predict(pred_df)
 
-        return render_template('home.html', results=results[0])
+        return render_template('home.html', results=int(results[0]))
     
 
 if __name__ == "__main__":

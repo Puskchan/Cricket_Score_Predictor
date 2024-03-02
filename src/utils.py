@@ -93,3 +93,49 @@ def load_obj(file_path):
             return dill.load(file_obj)
     except Exception as e:
         raise CustomException(e,sys)
+    
+
+def imputation(df):
+    batting =  {'Batting team AFG': [False], 
+                'Batting team AUS': [False],
+                'Batting team BAN': [False], 
+                'Batting team ENG': [False], 
+                'Batting team IND': [False], 
+                'Batting team IRE': [False],
+                'Batting team NED': [False], 
+                'Batting team NZ': [False], 
+                'Batting team PAK': [False], 
+                'Batting team SA': [False],
+                'Batting team SL': [False], 
+                'Batting team WI': [False],} 
+
+    bowling=   {'Bowling team AFG': [False],
+                'Bowling team AUS': [False], 
+                'Bowling team BAN': [False], 
+                'Bowling team ENG': [False], 
+                'Bowling team IND': [False],
+                'Bowling team IRE': [False], 
+                'Bowling team NED': [False], 
+                'Bowling team NZ': [False], 
+                'Bowling team PAK': [False],
+                'Bowling team SA': [False], 
+                'Bowling team SL': [False], 
+                'Bowling team WI': [False],}
+
+
+    bat = f"Batting team {df['Batting_team'].values[0]}"
+    bowl = f"Bowling team {df['Bowling_team'].values[0]}"
+
+    if bat in batting:
+        batting[bat] = [True]
+    if bowl in bowling:
+        bowling[bowl] = [True]
+
+    batting = pd.DataFrame(batting)
+    bowling = pd.DataFrame(bowling)
+
+    df = df.drop(['Batting_team','Bowling_team'], axis=1)
+
+    final = pd.concat((df, batting, bowling), axis=1)
+
+    return final
