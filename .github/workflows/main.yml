@@ -85,8 +85,10 @@ jobs:
       
       
       - name: Pull latest images
+        env:
+          IMAGE_TAG: ${{ github.sha }}
         run: |
-         docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+         docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:$IMAGE_TAG
          
       # - name: Stop and remove  container if running
       #   run: |
