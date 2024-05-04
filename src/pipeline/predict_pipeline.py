@@ -1,5 +1,4 @@
 import sys
-import os
 import pandas as pd
 
 from src.exception import CustomException
@@ -14,7 +13,6 @@ class PredictionPipeline:
     def predict(self, features):
         try:
             model_path = 'artifacts/model.pkl'
-            # preprocessor_path = 'artifacts/preprocessor.pkl'
             model = load_obj(model_path)
             preds = model.predict(features)
             return preds
