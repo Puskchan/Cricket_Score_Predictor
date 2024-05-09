@@ -1,0 +1,102 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://as1.ftcdn.net/v2/jpg/01/97/33/46/1000_F_197334647_aClfAIrrc0RPrsC8V52RN4MkzNmQCysc.jpg'); /* Path to your cricket stadium image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(117, 209, 117, 0.8); 
+    border-radius: 60px;
+    box-shadow: 0 0 20px rgba(241, 44, 44, 0.947);
+    text-align: center; 
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    color: #ebf4e9;
+    font-weight: bolder;
+    
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #222;
+}
+
+select, input[type="number"] {
+    width: calc(100% - 22px); 
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #410cf0;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+select {
+    padding-left: 30px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #fff; 
+    color: #333; 
+    font-size: 20px; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+}
+
+
+option {
+    background-repeat: no-repeat;
+    background-size: 20px; 
+    background-position: 5px center; 
+    padding-left: 30px; 
+}
+
+
+option:checked {
+    background-color: #4CAF50; 
+    color: #fff; 
+}
+
+
+button[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #bbeb1e;
+    color: #141313;
+    border: #ccc;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #d23111;
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #080202;
+}

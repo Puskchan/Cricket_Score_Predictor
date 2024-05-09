@@ -4,80 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Score Predictor</title>
-    <style>/* style.css */
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1, h2 {
-            text-align: center;
-            color: #333;
-        }
-        
-        form {
-            margin-top: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        input[type="number"], select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        
-        .result {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
-        </style>
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
 
-    <h1>Cricket Score Predictor</h1>
+    <header>
+        <h1>Cricket Score Predictor</h1>
+    </header>
 
-    <form action="{{ url_for('predict_datapoint')}}" method="post">
+    <div class="container">
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <label for="battingteam">Select Batting Team:</label>
+            <select name="battingteam" required>
+                <option value="ENG">England</option>
+                <option value="NZ">New Zealand</option>
+                <option value="PAK" >Pakistan</option>
+                <option value="NED">Netherlands</option>
+                <option value="AFG">Afghanistan</option>
+                <option value="BAN">Bangladesh</option>
+                <option value="SA">South Africa</option>
+                <option value="SL">Sri Lanka</option>
+                <option value="AUS">Australia</option>
+                <option value="IND">India</option>
+                <option value="WI">West Indies</option>
+                <option value="IRE">Ireland</option>
+            </select>
 
-        <label for="battingteam">Batting Team:</label>
-        <select name="battingteam" required>
-            <option value="ENG">England</option>
+            <label for="bowlingteam">Select Bowling Team:</label>
+            <select name="bowlingteam" required>
+                <option value="ENG">England</option>
             <option value="NZ">New Zealand</option>
             <option value="PAK">Pakistan</option>
             <option value="NED">Netherlands</option>
@@ -89,44 +44,34 @@
             <option value="IND">India</option>
             <option value="WI">West Indies</option>
             <option value="IRE">Ireland</option>
-        </select><br>
+            </select>
 
-        <label for="bowlingteam">Bowling Team:</label>
-        <select name="bowlingteam" required>
-            <option value="ENG">England</option>
-            <option value="NZ">New Zealand</option>
-            <option value="PAK">Pakistan</option>
-            <option value="NED">Netherlands</option>
-            <option value="AFG">Afghanistan</option>
-            <option value="BAN">Bangladesh</option>
-            <option value="SA">South Africa</option>
-            <option value="SL">Sri Lanka</option>
-            <option value="AUS">Australia</option>
-            <option value="IND">India</option>
-            <option value="WI">West Indies</option>
-            <option value="IRE">Ireland</option>
-        </select><br>
+            <label for="overNumber">Over Number:</label>
+            <input type="number" id="overNumber" name="overNumber" required>
 
-        <label for="overNumber">Over Number:</label>
-        <input type="number" id="overNumber" name="overNumber" required><br>
+            <label for="runsTillOver">Runs Scored Till That Over:</label>
+            <input type="number" id="runsTillOver" name="runsTillOver" required>
 
-        <label for="runsTillOver">Runs Scored Till That Over:</label>
-        <input type="number" id="runsTillOver" name="runsTillOver" required><br>
+            <label for="wicketsTillOver">Wickets Taken Till That Over:</label>
+            <input type="number" id="wicketsTillOver" name="wicketsTillOver" required>
 
-        <label for="wicketsTillOver">Wickets Taken Till That Over:</label>
-        <input type="number" id="wicketsTillOver" name="wicketsTillOver" required><br>
+            <label for="runsLast5overs">Runs in Last 5 Overs:</label>
+            <input type="number" id="runsLast5overs" name="runsLast5overs" required>
 
-        <label for="runsLast5overs">Runs in Last 5 Overs:</label>
-        <input type="number" id="runsLast5overs" name="runsLast5overs" required><br>
+            <label for="wicketsLast5overs">Wickets in Last 5 Overs:</label>
+            <input type="number" id="wicketsLast5overs" name="wicketsLast5overs" required>
 
-        <label for="wicketsLast5overs">Wickets in Last 5 Overs:</label>
-        <input type="number" id="wicketsLast5overs" name="wicketsLast5overs" required><br>
+            <button type="submit">Predict</button>
+        </form>
 
-        <input type="submit" value="Predict">
-    </form>
-    <h2>
-        The Score Prediction is {{results}}
-    </h2>
+        <div class="result">
+            <h2>The Score Prediction is: <span>{{........}}</span></h2>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cricket Score Predictor. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
