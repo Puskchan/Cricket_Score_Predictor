@@ -84,8 +84,5 @@ Any additional information goes here
 
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
  - [End to End data science playlist](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
 
- *add the blogs and the videos you watched during the process.
