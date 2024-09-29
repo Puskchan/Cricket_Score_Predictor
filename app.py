@@ -1,10 +1,8 @@
-from flask import Flask,request,render_template
+from flask import Flask, request, render_template, redirect, url_for
 import numpy as np
 import pandas as pd
 
 from src.pipeline.predict_pipeline import CustomData, PredictionPipeline
-
-
 
 application = Flask(__name__)
 
@@ -36,8 +34,11 @@ def predict_datapoint():
         predict_pipeline = PredictionPipeline()
         results = predict_pipeline.predict(pred_df)
 
-        return render_template('home.html', results=int(results[0]))
-    
+        return render_template('results.html', results=int(results[0]))
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)

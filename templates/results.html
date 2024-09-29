@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://as1.ftcdn.net/v2/jpg/01/97/33/46/1000_F_197334647_aClfAIrrc0RPrsC8V52RN4MkzNmQCysc.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .result-container {
+            background-color: rgba(117, 209, 117, 0.8);
+            border-radius: 60px;
+            box-shadow: 0 0 20px rgba(241, 44, 44, 0.947);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ebf4e9;
+            font-weight: bolder;
+        }
+        
+        .result {
+            font-size: 24px;
+            font-weight: bolder;
+            color: #080202;
+            margin-top: 20px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #bbeb1e;
+            color: #141313;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: #d23111;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Prediction Result</h1>
+        <div class="result">
+            <h2>The Score Prediction is: <span>{{results}}</span></h2>
+        </div>
+        <a href="{{ url_for('home') }}" class="back-button">Back to Predictor</a>
+    </div>
+</body>
+</html>
